@@ -32,7 +32,7 @@ export default function Header() {
   const [caption, setCaption] = useState("");
 
   const db = getFirestore(app);
-  console.log(session);
+
   function addImageToPost(e) {
     const file = e.target.files[0];
     if (file) {
@@ -52,7 +52,7 @@ export default function Header() {
     const fileName = new Date().getTime() + "-" + selectedFile?.name;
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, selectedFile);
-    console.log(uploadTask.snapshot.ref);
+    console.log(uploadTask);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -86,6 +86,7 @@ export default function Header() {
     });
     setPostUploading(false);
     setIsOpen(false);
+    location.reload();
   }
 
   return (

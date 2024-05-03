@@ -3,7 +3,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function MiniProfile() {
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
   return (
     <div className="flex items-center justify-between mt-14 ml-10">
       <img
