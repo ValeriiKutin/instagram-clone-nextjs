@@ -52,7 +52,6 @@ export default function Header() {
     const fileName = new Date().getTime() + "-" + selectedFile?.name;
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, selectedFile);
-    console.log(uploadTask);
     uploadTask.on(
       "state_changed",
       (snapshot) => {

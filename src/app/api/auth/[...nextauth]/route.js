@@ -12,7 +12,6 @@ const handler = NextAuth({
   ],
   callbacks: {
     async session({ session, token }) {
-      // console.log(session);
       session.user.username = session.user.name
         .split(" ")
         .join("")
