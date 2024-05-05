@@ -1,15 +1,7 @@
-import { app } from "@/firebase";
-import {
-  collection,
-  getDocs,
-  getFirestore,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import PostItem from "./PostItem";
-
+import { db } from "@/firebase";
 export default async function Posts() {
-  const db = getFirestore(app);
   const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
   const querySnapshot = await getDocs(q);
   let data = [];

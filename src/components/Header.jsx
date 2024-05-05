@@ -8,6 +8,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { HiCamera } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { app } from "@/firebase";
+import { db } from "@/firebase";
 import {
   getDownloadURL,
   getStorage,
@@ -31,7 +32,6 @@ export default function Header() {
   const filePickerRef = useRef(null);
   const [caption, setCaption] = useState("");
 
-  const db = getFirestore(app);
 
   function addImageToPost(e) {
     const file = e.target.files[0];

@@ -1,9 +1,7 @@
 "use client";
-import { app } from "@/firebase";
 import {
   collection,
   deleteDoc,
-  getFirestore,
   onSnapshot,
   setDoc,
   doc,
@@ -11,12 +9,11 @@ import {
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { HiOutlineHeart, HiHeart } from "react-icons/hi";
-
+import { db } from "@/firebase";
 export default function LikeSection({ id }) {
   const { data: session } = useSession();
   const [hasLiked, setHasLiked] = useState(false);
   const [likes, setLikes] = useState([]);
-  const db = getFirestore(app);
   //цей йобаний useEffect для того, щоб можна було показати кількість йобаних лайків
   useEffect(() => {
     // db, "posts", id, "likes" - це ми отримуємо колекцію лайків під потрібним постом
